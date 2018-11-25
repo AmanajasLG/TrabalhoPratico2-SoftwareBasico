@@ -50,38 +50,73 @@ void Conversion::Converting()
 
         if (boost::iequals(words[index], "ADD"))
         {
+            file_s << "     add dword eax, ";
+
+            file_s << "\n";
         }
         else if (boost::iequals(words[index], "SUB"))
         {
+            file_s << "     sub dword eax, ";
+
+            file_s << "\n";
         }
         else if (boost::iequals(words[index], "MULT"))
         {
+            file_s << "     imul dword eax, ";
+            file_s << "\n";
+            file_s << "     jlo  OverflowError\n";
         }
         else if (boost::iequals(words[index], "DIV"))
         {
+            file_s << "     cdq\n"
+                      "     idiv dword eax, ";
+            file_s << "\n";
         }
         else if (boost::iequals(words[index], "JMP"))
         {
+            file_s << "     jmp " << words[index + 1] << "\n";
         }
         else if (boost::iequals(words[index], "JMPN"))
         {
+            file_s << "     cmp eax,0\n"
+                      "     jl "
+                   << words[index + 1] << "\n";
         }
         else if (boost::iequals(words[index], "JMPP"))
         {
+            file_s << "     cmp eax,0\n"
+                      "     jg "
+                   << words[index + 1] << "\n";
         }
         else if (boost::iequals(words[index], "JMPZ"))
         {
+            file_s << "     cmp eax,0\n"
+                      "     jz "
+                   << words[index + 1] << "\n";
         }
         else if (boost::iequals(words[index], "COPY"))
         {
+            file_s << "     mov dword ";
         }
         else if (boost::iequals(words[index], "LOAD"))
         {
+            file_s << "     mov dword eax, ";
 
-            file_s << "mov dword eax, [" << words[index + 1] << "]\n";
+            if (IsNumber(words[index + 1]))
+            {
+                file_s << words[index + 1] << "\n";
+                continue;
+            }
+
+            if (tables.IsSymbolInSymbolTable(words[index + 1]))
+            {
+            }
+            file_s << "\n";
         }
         else if (boost::iequals(words[index], "STORE"))
         {
+            file_s << "     mov dword ";
+            file_s << "\n";
         }
         else if (boost::iequals(words[index], "INPUT"))
         {
@@ -152,8 +187,8 @@ void Conversion::Converting()
                           "EscreverString:\n"
                           "     ret\n"
                           "\n"
-                          "     global main\n"
-                          "main:\n";
+                          "     global _start\n"
+                          "_star:\n";
             }
         }
         else if (boost::iequals(words[index], "SPACE"))

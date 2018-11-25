@@ -30,6 +30,8 @@ class Conversion
     void Converting();
     void InitFileS();
 
+    bool IsNumber(std::string word) { return word.find_first_not_of("-0123456789,") == std::string::npos; }
+
   private:
     std::string file_name;
     std::ifstream file_asm;
