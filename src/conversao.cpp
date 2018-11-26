@@ -16,6 +16,7 @@ bool Conversion::IsFileOpen()
     return true;
 }
 
+/* Funcao analiza as comandos do assembly inventado e converte para ia32 */
 void Conversion::Converting()
 {
     InitFileS();
@@ -406,7 +407,7 @@ void Conversion::InitFileS()
 
 void Conversion::AddIOFunctions()
 {
-    file_s << "section .data ;Data segment\n"
+    file_s << "section .data\n"
               "     overflowMsg         dd          'ERRO - Mult gerou overflow!',0xA\n"
               "     lenOverflowMsg      equ         $-overflowMsg\n"
               "     numberError         db          'Entrada invalida para numero', 0xA\n"
@@ -675,5 +676,3 @@ void Conversion::AddIOFunctions()
               "     ret 8\n"
               "\n";
 }
-
-/* g++ -o tradutor src/tradutor.cpp src/analisador_de_instrucao.cpp src/preprocessamento.cpp src/conversao.cpp src/tabelas.cpp  -std=c++11 -L/usr/local/lib/ -lboost_filesystem && ./tradutor teste && nasm -f elf32 teste.s -o teste.o && ld -m elf_i386 -s -o teste teste.o && ./teste */

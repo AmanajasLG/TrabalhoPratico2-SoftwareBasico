@@ -20,4 +20,5 @@ Tradutor:
         -Arquivo fora da pasta:
             ./tradutor ../test
 
-OBS: O programa considera que a linguagem hipotética possui apenas uma declaração de SECTION TEXT e faz a declaração dos procedimentos(LeerInteiro, EscreverInteiro, LeerChar, EscreverChar, LeerString, EscreverString e OverflowError) quando a mesma aparece.
+OBS: Para compilar tanto o tradutor quanto o próprio programa gerado utilize o comando 
+    g++ -o tradutor src/tradutor.cpp src/analisador_de_instrucao.cpp src/preprocessamento.cpp src/conversao.cpp src/tabelas.cpp  -std=c++11 -L/usr/local/lib/ -lboost_filesystem && ./tradutor (nome_do_arquivo) && nasm -f elf32 (nome_do_arquivo).s -o (nome_do_arquivo).o && ld -m elf_i386 -s -o (nome_do_arquivo) (nome_do_arquivo).o && ./(nome_do_arquivo)
