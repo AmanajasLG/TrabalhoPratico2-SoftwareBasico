@@ -10,15 +10,15 @@ Caso boost não esteja instalada no computador, ela pode ser instalda por:
     sudo apt-get install libboost-all-dev 
 
 Tradutor:
-    Para compílar o tradutor basta entrar na pasta pelo terminal e colocar:
+   Para compílar o tradutor basta entrar na pasta pelo terminal e colocar:
         g++ -o tradutor src/tradutor.cpp src/analisador_de_instrucao.cpp src/preprocessamento.cpp src/conversao.cpp src/tabelas.cpp  -std=c++11 -L/usr/local/lib/ -lboost_filesystem
 
-    Será gerado o arquivo tradutor e para rodar basta colocar ./tradutor e o arquivo desejado. O arquivo precisa necessariamente estar dentro da pasta tradutor ou inserir o endereco junto com o nome.
+   Será gerado o arquivo tradutor e para rodar basta colocar ./tradutor e o arquivo desejado. O arquivo precisa necessariamente estar dentro da pasta tradutor ou inserir o endereco junto com o nome.
     EX:
         - Arquivo dentro da pasta:
             ./tradutor teste
         -Arquivo fora da pasta:
             ./tradutor ../test
 
-OBS: Para compilar tanto o tradutor quanto o próprio programa gerado utilize o comando 
+OBS: Para compilar tanto o tradutor quanto o próprio programa gerado utilize o comando   
     g++ -o tradutor src/tradutor.cpp src/analisador_de_instrucao.cpp src/preprocessamento.cpp src/conversao.cpp src/tabelas.cpp  -std=c++11 -L/usr/local/lib/ -lboost_filesystem && ./tradutor (nome_do_arquivo) && nasm -f elf32 (nome_do_arquivo).s -o (nome_do_arquivo).o && ld -m elf_i386 -s -o (nome_do_arquivo) (nome_do_arquivo).o && ./(nome_do_arquivo)
