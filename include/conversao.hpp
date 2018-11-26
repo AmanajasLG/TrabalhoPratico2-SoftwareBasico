@@ -20,15 +20,15 @@ class Conversion
     {
         file_asm.close();
         file_s.close();
-        std::cout << "COLOCA PRA DELETAR DEPOIS!" << std::endl;
-        // file_name += "pp.asm";
-        // remove(file_name.c_str());
+        file_name += "pp.asm";
+        remove(file_name.c_str());
     }
 
     bool IsFileOpen();
 
     void Converting();
     void InitFileS();
+    void AddIOFunctions();
 
     bool IsNumber(std::string word) { return word.find_first_not_of("-0123456789,") == std::string::npos; }
 

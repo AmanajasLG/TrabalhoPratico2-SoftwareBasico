@@ -5,7 +5,7 @@ O trabalho foi desenvolvido em C++ e testado no UNIX LinuxMint 18.3 utilizando o
 
 Para compilar o programa é necessario g++ e ter a biblioteca boost instalada.
 
-A biblioteca boost foi usada apenas para separação de palavras pela função boost::split e para verificar se duas palavras são iguais independente de sua case pela função boost::iequals.
+A biblioteca boost foi usada apenas para separação de palavras pela função boost::split, para verificar se duas palavras são iguais independente de sua case pela função boost::iequals e para deixar todo o programa em capslock após o preprocessamento.
 Caso boost não esteja instalada no computador, ela pode ser instalda por: 
     sudo apt-get install libboost-all-dev 
 

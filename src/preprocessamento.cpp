@@ -109,6 +109,7 @@ void PreProcessing::PreProcess()
         /* Se a linha nao for vazia ela coloca no arquivo .pre */
         if (write_line != "" && write_line != " ")
         {
+            boost::to_upper(write_line);
             file_pre << write_line << "\n";
         }
         words.clear();
