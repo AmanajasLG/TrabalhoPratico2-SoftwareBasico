@@ -11,7 +11,7 @@ A biblioteca boost foi usada apenas para separação de palavras pela função b
 Caso boost não esteja instalada no computador, ela pode ser instalda por:   
     `sudo apt-get install libboost-all-dev` 
 
-Tradutor:
+Tradutor:   
    Para compílar o tradutor basta entrar na pasta pelo terminal e colocar:  
         `g++ -o tradutor src/tradutor.cpp src/analisador_de_instrucao.cpp src/preprocessamento.cpp src/conversao.cpp src/tabelas.cpp  -std=c++11 -L/usr/local/lib/ -lboost_filesystem`
 
